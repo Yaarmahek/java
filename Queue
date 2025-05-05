@@ -1,0 +1,92 @@
+package com.mycompany.queueoperations;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+/**
+ *
+ * @author DHANASHRI
+ */
+public class QueueOperations {
+    Scanner sc = new Scanner(System.in);
+    Queue<Integer> st = new LinkedList<>();
+
+    public void push_element() {
+        System.out.print("Enter the Element: ");
+        int n1 = sc.nextInt();
+        st.add(n1);
+    }
+
+    public void pop_element() {
+        if (!st.isEmpty()) {
+            System.out.println("Element popped: " + st.remove());
+        } else {
+            System.out.println("Queue is empty. Nothing to pop.");
+        }
+    }
+
+    public void display() {
+        System.out.println("Queue Elements are: " + st);
+    }
+
+    public void find() {
+        System.out.print("Enter Element to find: ");
+        int x = sc.nextInt();
+        if (st.contains(x)) {
+            System.out.println("Element found.");
+        } else {
+            System.out.println("Element Not Found.");
+        }
+    }
+
+    public void empty() {
+        if (st.isEmpty()) {
+            System.out.println("Queue Is Empty.");
+        } else {
+            System.out.println("Queue is not Empty.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        QueueOperations obj = new QueueOperations();
+        int op = 0;
+        while (op != 6) {
+            System.out.println("\n--- Queue Menu ---");
+            System.out.println("1. Enqueue Element in Queue");
+            System.out.println("2. Dequeue Element from the Queue");
+            System.out.println("3. Display the Queue");
+            System.out.println("4. Find Element in the Queue");
+            System.out.println("5. Check if the Queue is Empty");
+            System.out.println("6. Exit");
+            System.out.print("Select the option: ");
+            op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    obj.push_element();
+                    break;
+                case 2:
+                    obj.pop_element();
+                    break;
+                case 3:
+                    obj.display();
+                    break;
+                case 4:
+                    obj.find();
+                    break;
+                case 5:
+                    obj.empty();
+                    break;
+                case 6:
+                    System.out.println("Exiting.....");
+                    break;
+                default:
+                    System.out.println("Wrong Choice!!!!");
+                    break;
+            }
+        }
+        sc.close();
+    }
+}
