@@ -1,0 +1,86 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.calculator;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author DHANASHRI
+ */
+public class Calculator {
+    Scanner sc=new Scanner(System.in);
+        int n1,n2;
+        public void read(){
+            
+            System.out.println("Enter n1 :");
+            n1=sc.nextInt();
+            System.out.println("Enter n2 :");
+            n2=sc.nextInt(); 
+        }
+        
+        public void addition(){
+            read();
+            int add=n1+n2;
+            System.out.println("Addition :"+add);
+            
+        }
+        public void subtraction(){
+            read();
+            int sub=n1-n2;
+            System.out.println("Subtraction :"+sub); 
+        }
+        public void multiplication(){
+            read();
+            int mult=n1*n2;
+            System.out.println("Multiplication :"+mult); 
+        }
+        public void division(){
+            read();
+            if (n2==0){
+                System.out.println("Cannot Divide By Zero!!!!");
+            }
+            else{
+                int div=n1/n2;
+                System.out.println("Division :"+div);
+            }
+        }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Calculator obj=new Calculator();
+        int op=0;
+        while (op!=6){
+            System.out.println("1.Addition");
+            System.out.println("2.Subtraction");
+            System.out.println("3.Multiplication");
+            System.out.println("4.Division");            
+            System.out.println("5.Exit");
+            System.out.print("Select option :");
+            op=sc.nextInt();
+            
+            switch (op) {
+                case 1 :
+                     obj.addition();
+                     break;
+                case 2 :
+                     obj.subtraction();
+                     break;
+                case 3 :
+                     obj.multiplication();
+                     break;
+                case 4 :
+                     obj.division();
+                     break;
+                case 5 :
+                     System.out.println("Exiting....");
+                     System.exit(0);
+                     break;
+                default :
+                    System.out.println("Wrong Choice !!!!!!!!");
+                    break;
+            }   
+        }
+    }
+}
