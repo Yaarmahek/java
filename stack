@@ -1,0 +1,91 @@
+package com.mycompany.stackoperations;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+/**
+ *
+ * @author DHANASHRI
+ */
+public class StackOperations {
+
+    Scanner sc = new Scanner(System.in);
+    Stack<Integer> st = new Stack<>();
+
+    public void push_element() {
+        System.out.println("Enter the Element: ");
+        int n1 = sc.nextInt();
+        st.push(n1);
+    }
+
+    public void pop_element() {
+        if (!st.isEmpty()) {
+            System.out.println("Element popped: " + st.pop());
+        } else {
+            System.out.println("Stack is empty. Cannot pop.");
+        }
+    }
+
+    public void display() {
+        System.out.println("Stack Elements are: " + st);
+    }
+
+    public void find() {
+        System.out.println("Enter Element to find: ");
+        int x = sc.nextInt();
+        if (st.search(x) != -1) {
+            System.out.println("Element found");
+        } else {
+            System.out.println("Element not found");
+        }
+    }
+
+    public void empty() {
+        if (st.isEmpty()) {
+            System.out.println("Stack is empty");
+        } else {
+            System.out.println("Stack is not empty");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        StackOperations obj = new StackOperations();
+        int op = 0;
+
+        while (op != 6) {
+            System.out.println("\n1. Push Element in Stack");
+            System.out.println("2. Pop Element from Stack");
+            System.out.println("3. Display Stack");
+            System.out.println("4. Find Element in Stack");
+            System.out.println("5. Check if Stack is Empty");
+            System.out.println("6. Exit");
+            System.out.print("Select the option: ");
+            op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    obj.push_element();
+                    break;
+                case 2:
+                    obj.pop_element();
+                    break;
+                case 3:
+                    obj.display();
+                    break;
+                case 4:
+                    obj.find();
+                    break;
+                case 5:
+                    obj.empty();
+                    break;
+                case 6:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Wrong Choice! Try again.");
+            }
+        }
+        sc.close();
+    }
+}
